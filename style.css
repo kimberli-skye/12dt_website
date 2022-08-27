@@ -1,0 +1,125 @@
+/*---- sets margin, padding and border to zero ----*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*---- sets and displays a grid template ----*/
+/*---- sets grids width and margin in browser ----*/
+.grid-container {
+    display: grid;
+    height: 950px;
+    align-content: start;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 10px;
+    background-color: cornflowerblue;
+    padding: 10px;
+}
+
+.header {
+    grid-column-start: span 6;
+    grid-row-start: span 1;
+    background-color: mediumpurple
+}
+
+.page-name {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: pink;
+    margin: 20px;
+}
+
+.menu-block {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 7;
+    background-color: lightcoral;
+    margin: 50px;
+
+}
+
+.specials-block {
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 7;
+    background-color: lightcoral;
+    margin: 50px;
+
+}
+
+.all-menus-block {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 7;
+    background-color: lightcoral;
+
+}
+
+.diets-page-name {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: pink;
+    margin-top: 30px;
+}
+
+.diets-toggle-block {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 7;
+    background-color: lightcoral;
+}
+
+.toggled-diet-name{
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: pink;
+    margin: 30px;
+}
+.diets-info{
+    grid-column-start: 2;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 7;
+    background-color: orange;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.drink-info-one{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 7;
+    background-color: orange;
+    margin: 50px;
+}
+
+.drink-info-two{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 7;
+    background-color: orange;
+    margin: 50px;
+}
+
+.drink-info-three{
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 7;
+    background-color: orange;
+    margin: 50px;
+}
