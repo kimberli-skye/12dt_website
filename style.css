@@ -1,3 +1,6 @@
+/*---- imports a dafont font ----*/
+@import url('https://www.dafontfree.net/embed/b3Blbi1zYW5zLXJlZ3VsYXImZGF0YS8xNi9vLzc4NzU5L09wZW5TYW5zLVJlZ3VsYXIudHRm');
+
 /*---- sets margin, padding and border to zero ----*/
 *{
     margin: 0;
@@ -9,19 +12,47 @@
 /*---- sets grids width and margin in browser ----*/
 .grid-container {
     display: grid;
-    height: 950px;
-    align-content: start;
+    align-content: center;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
     gap: 10px;
-    background-color: cornflowerblue;
+    background-color: lightgray;
     padding: 10px;
+    margin: auto;
 }
 
 .header {
-    grid-column-start: span 6;
-    grid-row-start: span 1;
-    background-color: mediumpurple
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: teal;
+}
+
+/*---- creates navigation class ----*/
+/*---- Tried to figure out how to stop wrapping and found nowrap ----*/
+/*---- credit to Michael Benjamin in Stack Over: https://stackoverflow.com/questions/46103520/how-to-disable-wrapping-in-html-elements ----*/
+.navigation {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: teal;
+    margin-top: 50px;
+}
+
+/*---- creates a.one (link version one) option ----*/
+/*---- links to font family ----*/
+/*---- sets colour and font size ----*/
+a.one{
+    font-family: 'open-sans-regular', sans-serif;
+    font-size: 20px;
+    color: white;
+    border: 4px solid white;  /* ---- sets border size and colour ---- */
+    border-radius: 0px;  /* ---- sets shape of border (square or circle) ---- */
+    padding: 10px;
+    margin-left: 30px;
+    text-decoration: none;
 }
 
 .page-name {
@@ -29,7 +60,7 @@
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
-    background-color: pink;
+    background-color: white;
     margin: 20px;
 }
 
@@ -38,19 +69,33 @@
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 7;
-    background-color: lightcoral;
+    background-color: white;
     margin: 50px;
 
 }
 
 .specials-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /*---- aligns content to the center (display, align and justify) ----*/
     grid-column-start: 3;
     grid-column-end: 7;
     grid-row-start: 3;
     grid-row-end: 7;
-    background-color: lightcoral;
+    background-color: white;
     margin: 50px;
+}
 
+p{
+    font-family: 'open-sans-regular', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+h1{
+    font-family: 'open-sans-regular', sans-serif;
+    font-size: 30px;
+    text-align: inherit;
 }
 
 .all-menus-block {
@@ -58,7 +103,7 @@
     grid-column-end: 6;
     grid-row-start: 3;
     grid-row-end: 7;
-    background-color: lightcoral;
+    background-color: white;
 
 }
 
@@ -67,7 +112,7 @@
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
-    background-color: pink;
+    background-color: white;
     margin-top: 30px;
 }
 
@@ -76,7 +121,8 @@
     grid-column-end: 2;
     grid-row-start: 3;
     grid-row-end: 7;
-    background-color: lightcoral;
+    background-color: white;
+    margin-left: 50px;
 }
 
 .toggled-diet-name{
@@ -84,7 +130,7 @@
     grid-column-end: 6;
     grid-row-start: 3;
     grid-row-end: 4;
-    background-color: pink;
+    background-color: white;
     margin: 30px;
 }
 .diets-info{
@@ -92,7 +138,7 @@
     grid-column-end: 7;
     grid-row-start: 4;
     grid-row-end: 7;
-    background-color: orange;
+    background-color: white;
     margin-left: 100px;
     margin-right: 100px;
 }
@@ -102,7 +148,7 @@
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 7;
-    background-color: orange;
+    background-color: white;
     margin: 50px;
 }
 
@@ -111,7 +157,7 @@
     grid-column-end: 5;
     grid-row-start: 3;
     grid-row-end: 7;
-    background-color: orange;
+    background-color: white;
     margin: 50px;
 }
 
@@ -120,6 +166,6 @@
     grid-column-end: 7;
     grid-row-start: 3;
     grid-row-end: 7;
-    background-color: orange;
+    background-color: white;
     margin: 50px;
 }

@@ -1,8 +1,8 @@
 <?php
 ?>
 
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <!-- Name of website in browser, as to keep track  -->
         <meta charset="utf-8"/>
@@ -15,6 +15,15 @@
 
         </div>
 
+        <!-- links the navigation buttons to different pages of the website -->
+        <!-- links to class "one" for first link type -->
+        <div class="navigation">
+            <a class="one" href="home_page.php">Home</a>
+            <a class="one" href="menu.php">Menu</a>
+            <a class="one" href="diets.php">Diets</a>
+            <a class="one" href="drinks.php">Drinks</a>
+        </div>
+
         <div class="page-name">
 
         </div>
@@ -24,4 +33,4 @@
         </div>
     </div>
 
-    </html><?php
+</html>
