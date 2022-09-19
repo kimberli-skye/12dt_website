@@ -70,33 +70,33 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
         $limit = round($count_rows / 3);
 
         $div_one_query = "SELECT *
-                              FROM products
-                              WHERE ProductType = 'drink' 
-                              ORDER BY ProductID ASC
-                              LIMIT $limit";
+                                  FROM products
+                                  WHERE ProductType = 'drink' 
+                                  ORDER BY ProductID ASC
+                                  LIMIT $limit";
         $div_one_result = mysqli_query($con, $div_one_query);
 
         $div_two_query = "SELECT *
-                              FROM products
-                              WHERE ProductType = 'drink' 
-                              ORDER BY ProductID DESC
-                              LIMIT $limit";
+                                  FROM products
+                                  WHERE ProductType = 'drink' 
+                                  ORDER BY ProductID DESC
+                                  LIMIT $limit";
         $div_two_result = mysqli_query($con, $div_two_query);
 
         /* Identical to above */
         $lower_query = "SELECT *
-                              FROM products
-                              WHERE ProductType = 'drink' 
-                              ORDER BY ProductID ASC
-                              LIMIT $limit";
+                                  FROM products
+                                  WHERE ProductType = 'drink' 
+                                  ORDER BY ProductID ASC
+                                  LIMIT $limit";
         $lower_result = mysqli_query($con, $lower_query);
         $lower_record = mysqli_fetch_assoc($lower_result);
 
         $upper_query = "SELECT *
-                              FROM products
-                              WHERE ProductType = 'drink' 
-                              ORDER BY ProductID DESC
-                              LIMIT $limit";
+                                  FROM products
+                                  WHERE ProductType = 'drink' 
+                                  ORDER BY ProductID DESC
+                                  LIMIT $limit";
         $upper_result = mysqli_query($con, $upper_query);
         $upper_record = mysqli_fetch_assoc($upper_result);
 
@@ -111,9 +111,9 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
                     /* echo == prints out info */
                     /* e.g. SpecialsID from the record or a paragraph break etc. */
                     echo "<br>";
-                    echo $div_one_record['ProductName'];
-                    echo " $" . $div_one_record['Price'];
-                    echo "<br>Dietary info: ";
+                    echo "<h2>" . $div_one_record['ProductName'] . "</h2>";
+                    echo "<br><p> $" . $div_one_record['Price'];
+                    echo "<br>Dietary info: <br>";
 
                     /* Checks whether the Dietary requirement is yes or no */
                     /* if no, skip, if yes print appropriate info */
@@ -144,10 +144,10 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
                     /* Available, checks if the info is in the available drinks record*/
                     if($div_one_record['ProductName'] == $available_drinks_record['ProductName']) {
                         echo "<br>";
-                        echo "- Available -";
+                        echo "<b>- Available -</b>";
                     } else {
                         echo "<br>";
-                        echo "Out of Stock";
+                        echo "<b>- Out of Stock -</b>";
                     }
                     echo "<br>";
                     echo "<br>";
@@ -164,9 +164,9 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
                     /* echo == prints out info */
                     /* e.g. SpecialsID from the record or a paragraph break etc. */
                     echo "<br>";
-                    echo $div_two_record['ProductName'];
-                    echo " $" . $div_two_record['Price'];
-                    echo "<br>Dietary info: ";
+                    echo "<h2>" . $div_two_record['ProductName'] . "</h2>";
+                    echo "<br><p> $" . $div_two_record['Price'];
+                    echo "<br>Dietary info: <br>";
 
                     /* Checks whether the Dietary requirement is yes or no */
                     /* if no, skip, if yes print appropriate info */
@@ -197,10 +197,10 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
                     /* Available, checks if the info is in the available drinks record*/
                     if($div_two_record['ProductName'] == $available_drinks_record['ProductName']) {
                         echo "<br>";
-                        echo "- Available -";
+                        echo "<b>- Available -</b>";
                     } else {
                         echo "<br>";
-                        echo "- Out of Stock -";
+                        echo "<b>- Out of Stock -</b>";
                     }
                     echo "<br>";
                     echo "<br>";
@@ -220,9 +220,9 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
 
                     } else {
                         echo "<br>";
-                        echo $all_drinks_record['ProductName'];
-                        echo " $" . $all_drinks_record['Price'];
-                        echo "<br>Dietary info: ";
+                        echo "<h2>" . $all_drinks_record['ProductName'] . "</h2>";
+                        echo "<br><p> $" . $all_drinks_record['Price'];
+                        echo "<br>Dietary info: <br>";
 
                         /* Checks whether the Dietary requirement is yes or no */
                         /* if no, skip, if yes print appropriate info */
@@ -253,10 +253,10 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
                         /* Available, checks if the info is in the available drinks record*/
                         if($all_drinks_record['ProductName'] == $available_drinks_record['ProductName']) {
                             echo "<br>";
-                            echo "- Available -";
+                            echo "<b>- Available -</b>";
                         } else {
                             echo "<br>";
-                            echo "- Out of Stock -";
+                            echo "<b>- Out of Stock -</b>";
                         }
                         echo "<br>";
                         echo "<br>";
@@ -266,7 +266,10 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
             </p>
         </div>
 
-
+        <div class="footer">
+            <p> hello </p>
+            </di
+        </div>
     </div>
 
 </html>

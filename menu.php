@@ -7,7 +7,8 @@ $con = mysqli_connect("localhost", "joneski", 'spicysong14', "joneski_canteen");
 /* Selects all information from Products*/
 /* Contains it in results */
 $all_products_query = "SELECT * 
-                       FROM products";
+                       FROM products
+                       WHERE ProductType = 'food'";
 $all_products_result = mysqli_query($con, $all_products_query);
 
 /* Available Products Query */
@@ -15,7 +16,8 @@ $all_products_result = mysqli_query($con, $all_products_query);
 /* Checks if the id's match */
 $available_products_query = "SELECT *
                              FROM products, available
-                             WHERE products.ProductID = available.ProductID";
+                             WHERE products.ProductID = available.ProductID
+                             AND ProductType = 'food'";
 $available_products_result = mysqli_query($con, $available_products_query);
 ?>
 
@@ -26,7 +28,7 @@ $available_products_result = mysqli_query($con, $available_products_query);
         <meta charset="utf-8"/>
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
-
+    
     <!-- class that is linked to grid in css -->
     <div class="grid-container">
 
@@ -58,7 +60,7 @@ $available_products_result = mysqli_query($con, $available_products_query);
                 <!-- Opens PHP -->
                 <?php
                 /* Runs through all available results as long as they are in the record */
-                    while($available_products_record = mysqli_fetch_assoc($available_products_result)){
+                while($available_products_record = mysqli_fetch_assoc($available_products_result)){
 
                     /* echo == prints out info */
                     /* e.g. ProductName from the record or a paragraph break etc. */
@@ -106,7 +108,6 @@ $available_products_result = mysqli_query($con, $available_products_query);
                 <?php
                 /* Runs through all results as long as they are in the record */
                 while($all_products_record = mysqli_fetch_assoc($all_products_result)){
-
                     /* echo == prints out info */
                     /* e.g. ProductName from the record or a paragraph break etc. */
                     echo "<br>";
@@ -114,7 +115,6 @@ $available_products_result = mysqli_query($con, $available_products_query);
                     echo "<br>";
                     echo "Cost: $". $all_products_record['Price'];
                     echo "<br>Dietary info: ";
-
                     /* Checks whether the Dietary requirement is yes or no */
                     /* if no, skip, if yes print appropriate info */
                     /* Meat info */
@@ -122,19 +122,16 @@ $available_products_result = mysqli_query($con, $available_products_query);
                     } else {
                         echo "- Meat -";
                     }
-
                     /* Vegan info */
                     if($all_products_record['Vegan'] == 'no') {
                     } else {
                         echo "- Vegan -";
                     }
-
                     /* Vegetarian info */
                     if($all_products_record['Vegetarian'] == 'no') {
                     } else {
                         echo "- Vegetarian -";
                     }
-
                     /* Gluten Free info */
                     if($all_products_record['GlutenFree'] == 'no') {
                     } else {
@@ -147,6 +144,10 @@ $available_products_result = mysqli_query($con, $available_products_query);
                 ?>
             </p>
 
+        </div>
+
+        <div class="footer">
+            <p> hello </p>
         </div>
     </div>
 

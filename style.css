@@ -3,10 +3,12 @@
 
 /*---- sets margin, padding and border to zero ----*/
 *{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0;
 }
+
 
 /*---- Sets and displays a grid template (class) ----*/
 /*---- aligns content and sets background colour----*/
@@ -14,10 +16,9 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr) repeat(3, 2fr);
+    grid-template-rows: 150px 150px repeat(3, 1fr) 150px;
     background-color: lightgray;
     margin: auto;
-    gap: 10px;
     padding: 10px;
 }
 
@@ -30,7 +31,19 @@
     grid-row-start: 1;
     grid-row-end: 2;
     background-color: teal;
-    height: 150px;
+    margin-bottom: 20px;
+}
+
+/*---- Footer Class ----*/
+/*---- Sets area in grid ----*/
+/*---- Sets background colour----*/
+.footer {
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    background-color: teal;
+    margin-top: 20px;
 }
 
 /*---- creates Navigation Class ----*/
@@ -54,16 +67,17 @@
     grid-row-start: 2;
     grid-row-end: 3;
     background-color: white;
+    align-content: center;
 }
 
 /*---- creates Menu Block Class (used in Home_page) ----*/
 /*---- Sets area in grid ----*/
 /*---- Sets background colour and margin ----*/
 .menu-block {
-    grid-column-start: 1;
+    grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 3;
-    grid-row-end: 7;
+    grid-row-end: 6;
     background-color: white;
     margin: 50px;
 }
@@ -75,9 +89,9 @@
     align-items: center;
     justify-content: center;  /*---- aligns content to the center (display, align and justify) ----*/
     grid-column-start: 3;
-    grid-column-end: 7;
+    grid-column-end: 6;
     grid-row-start: 3;
-    grid-row-end: 7;
+    grid-row-end: 6;
     background-color: white;
     margin: 50px;
 }
@@ -88,7 +102,7 @@
     grid-column-start: 2;
     grid-column-end: 6;
     grid-row-start: 3;
-    grid-row-end: 7;
+    grid-row-end: 6;
     background-color: white;
     margin-top: 100px;
 }
@@ -141,7 +155,7 @@
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
-    grid-row-end: 7;
+    grid-row-end: 6;
     background-color: white;
     margin: 50px;
 }
@@ -150,7 +164,7 @@
     grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 3;
-    grid-row-end: 7;
+    grid-row-end: 6;
     background-color: white;
     margin: 50px;
 }
@@ -159,10 +173,11 @@
     grid-column-start: 5;
     grid-column-end: 7;
     grid-row-start: 3;
-    grid-row-end: 7;
+    grid-row-end: 6;
     background-color: white;
     margin: 50px;
 }
+
 
 
 /*---- links to font family ----*/
@@ -173,11 +188,20 @@ p{
     text-align: center;
 }
 
+
 /*---- links to font family ----*/
 /*---- sets colour and font size, aligns to center ----*/
 h1{
     font-family: 'open-sans-regular', sans-serif;
-    font-size: 30px;
+    font-size: 40px;
+    text-align: center;
+}
+
+/*---- links to font family ----*/
+/*---- sets colour and font size, aligns to center ----*/
+h2{
+    font-family: 'open-sans-regular', sans-serif;
+    font-size: 28px;
     text-align: center;
 }
 
