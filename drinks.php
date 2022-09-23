@@ -61,44 +61,46 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
 
         <!-- Opens PHP -->
         <?php
+
+        /* Adds a new column called div_placement */
+        $added= mysqli_query($con, "ALTER TABLE products ADD div_placement VARCHAR(10) NULL");
+
         /* Div number holder*/
         /* Count number of rows of drinks, store as a count,
            Divide this by three to find out the limit of rows for each div,
-           Create new query for each div that has each limit, stores in variables below
-           I then print them out in each div*/
+           Rounds it: */
         $count_rows = mysqli_num_rows($all_drinks_result);
         $limit = round($count_rows / 3);
 
+        /* Takes the top and bottom limit info */
         $div_one_query = "SELECT *
-                                  FROM products
-                                  WHERE ProductType = 'drink' 
-                                  ORDER BY ProductID ASC
-                                  LIMIT $limit";
+                              FROM products
+                              WHERE ProductType = 'drink' 
+                              LIMIT $limit";
         $div_one_result = mysqli_query($con, $div_one_query);
 
         $div_two_query = "SELECT *
-                                  FROM products
-                                  WHERE ProductType = 'drink' 
-                                  ORDER BY ProductID DESC
-                                  LIMIT $limit";
+                              FROM products
+                              WHERE ProductType = 'drink' 
+                              ORDER BY ProductID DESC /* The product ID (numerals) descending*/
+                              LIMIT $limit";
         $div_two_result = mysqli_query($con, $div_two_query);
 
-        /* Identical to above */
-        $lower_query = "SELECT *
-                                  FROM products
-                                  WHERE ProductType = 'drink' 
-                                  ORDER BY ProductID ASC
-                                  LIMIT $limit";
-        $lower_result = mysqli_query($con, $lower_query);
-        $lower_record = mysqli_fetch_assoc($lower_result);
 
-        $upper_query = "SELECT *
-                                  FROM products
-                                  WHERE ProductType = 'drink' 
-                                  ORDER BY ProductID DESC
-                                  LIMIT $limit";
-        $upper_result = mysqli_query($con, $upper_query);
-        $upper_record = mysqli_fetch_assoc($upper_result);
+        /* Updates the different parts of the table*/
+
+        /* Updates products with the lower limit */
+        $sql_update_one = "UPDATE products 
+                               SET div_placement = 'div_one' 
+                               WHERE ProductType = 'drink'
+                               LIMIT $limit";
+
+        /* Updates products with the higher limit */
+        $sql_update_two = "UPDATE products 
+                               SET div_placement = 'div_two' 
+                               WHERE ProductType = 'drink'
+                               ORDER BY ProductID DESC
+                               LIMIT $limit";
 
 
         ?>
@@ -213,12 +215,8 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
         <div class="drink-info-two">
             <p>
                 <?php
-                while($all_drinks_record = mysqli_fetch_assoc($all_drinks_result)){
-                    if($all_drinks_record['ProductID'] == $lower_record['ProductID']) {
-
-                    } elseif($all_drinks_record['ProductID'] == $upper_record['ProductID']){
-
-                    } else {
+                while($all_drinks_record = mysqli_fetch_assoc($all_drinks_result)) {
+                    if(is_null($all_drinks_record['div_placement'])) {
                         echo "<br>";
                         echo "<h2>" . $all_drinks_record['ProductName'] . "</h2>";
                         echo "<br><p> $" . $all_drinks_record['Price'];
@@ -227,31 +225,31 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
                         /* Checks whether the Dietary requirement is yes or no */
                         /* if no, skip, if yes print appropriate info */
                         /* Meat info */
-                        if($all_drinks_record['Meat'] == 'no') {
+                        if ($all_drinks_record['Meat'] == 'no') {
                         } else {
                             echo "- Meat -";
                         }
 
                         /* Vegan info */
-                        if($all_drinks_record['Vegan'] == 'no') {
+                        if ($all_drinks_record['Vegan'] == 'no') {
                         } else {
                             echo "- Vegan -";
                         }
 
                         /* Vegetarian info */
-                        if($all_drinks_record['Vegetarian'] == 'no') {
+                        if ($all_drinks_record['Vegetarian'] == 'no') {
                         } else {
                             echo "- Vegetarian -";
                         }
 
                         /* Gluten Free info */
-                        if($all_drinks_record['GlutenFree'] == 'no') {
+                        if ($all_drinks_record['GlutenFree'] == 'no') {
                         } else {
                             echo "- Gluten Free -";
                         }
 
                         /* Available, checks if the info is in the available drinks record*/
-                        if($all_drinks_record['ProductName'] == $available_drinks_record['ProductName']) {
+                        if ($all_drinks_record['ProductName'] == $available_drinks_record['ProductName']) {
                             echo "<br>";
                             echo "<b>- Available -</b>";
                         } else {
@@ -262,14 +260,14 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
                         echo "<br>";
                     }
                 }
+
                 ?>
             </p>
         </div>
 
         <div class="footer">
-            <p> hello </p>
-            </di
         </div>
+
     </div>
 
 </html>
