@@ -42,11 +42,13 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 
         <!-- "page name" class, linked to grid -->
         <div class="page-name">
-
+            <h1> WGC Canteen </h1>
         </div>
 
         <!-- "menu block" class, linked to grid -->
         <div class="menu-block">
+            <h2> Menus </h2>
+            <p> Click to go to a different menu <br></p>
             <a class="two" href="menu.php">Meals</a>
             <a class="two" href="diets.php">Diets</a>
             <a class="two" href="drinks.php">Drinks</a>
@@ -55,62 +57,60 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 
         <!-- Specials class, linked to grid -->
         <div class="specials-block">
-            <p>
-                <!-- Opens PHP -->
-                <?php
-                /* Runs through all results as long as they are in the record */
-                while($all_specials_record = mysqli_fetch_assoc($all_specials_result)){
+            <h3> <br>This Weeks Specials:</h3>
+            <!-- Opens PHP -->
+            <?php
+            /* Runs through all results as long as they are in the record */
+            while($all_specials_record = mysqli_fetch_assoc($all_specials_result)){
 
-                    /* echo == prints out info */
-                    /* e.g. SpecialsID from the record or a paragraph break etc. */
-                    echo "<br>";
-                    echo $all_specials_record['SpecialsID'] . " Special";
-                    echo ":<br>";
-                    echo $all_specials_record['ProductName'];
-                    echo " $" . $all_specials_record['DiscountedPrice'];
-                    echo "<br>Dietary info: ";
+                /* echo == prints out info */
+                /* e.g. SpecialsID from the record or a paragraph break etc. */
+                echo "<h2><br>";
+                echo $all_specials_record['SpecialsID'] . " Special";
+                echo ":<br><br></h2><p>";
+                echo "<b>" . $all_specials_record['ProductName'] . "</b>";
+                echo " $" . $all_specials_record['DiscountedPrice'];
+                echo "<br>Dietary info: ";
 
-                    /* Checks whether the Dietary requirement is yes or no */
-                    /* if no, skip, if yes print appropriate info */
-                    /* Meat info */
-                    if($all_specials_record['Meat'] == 'no') {
-                    } else {
-                        echo "- Meat -";
-                    }
-
-                    /* Vegan info */
-                    if($all_specials_record['Vegan'] == 'no') {
-                    } else {
-                        echo "- Vegan -";
-                    }
-
-                    /* Vegetarian info */
-                    if($all_specials_record['Vegetarian'] == 'no') {
-                    } else {
-                        echo "- Vegetarian -";
-                    }
-
-                    /* Gluten Free info */
-                    if($all_specials_record['GlutenFree'] == 'no') {
-                    } else {
-                        echo "- Gluten Free -";
-                    }
-
-                    /* Checks if available is yes */
-                    if($all_specials_record['available'] == 'yes') {
-                        echo "<br>";
-                        echo "<b>- Available -</b>";
-                    } else{
-                        echo "<br>";
-                        echo "<b>- Out of Stock -</b>";
-                    }
-
-                    /* Two paragraph breaks */
-                    echo "<br> <br>";
-                    echo "<br> <br>";
+                /* Checks whether the Dietary requirement is yes or no */
+                /* if no, skip, if yes print appropriate info */
+                /* Meat info */
+                if($all_specials_record['Meat'] == 'no') {
+                } else {
+                    echo "- Meat -";
                 }
-                ?>
-            </p>
+
+                /* Vegan info */
+                if($all_specials_record['Vegan'] == 'no') {
+                } else {
+                    echo "- Vegan -";
+                }
+
+                /* Vegetarian info */
+                if($all_specials_record['Vegetarian'] == 'no') {
+                } else {
+                    echo "- Vegetarian -";
+                }
+
+                /* Gluten Free info */
+                if($all_specials_record['GlutenFree'] == 'no') {
+                } else {
+                    echo "- Gluten Free -";
+                }
+
+                /* Checks if available is yes */
+                if($all_specials_record['available'] == 'yes') {
+                    echo "<br>";
+                    echo "<b>- Available -</b>";
+                } else{
+                    echo "<br>";
+                    echo "<b>- Out of Stock -</b>";
+                }
+
+                /* Two paragraph breaks */
+                echo "<br> <br></p>";
+            }
+            ?>
         </div>
 
         <div class="footer">

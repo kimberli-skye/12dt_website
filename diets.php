@@ -63,6 +63,9 @@ $GlutenFree_result = mysqli_query($con, $GlutenFree_query);
                 Code used: https://www.geeksforgeeks.org/how-to-call-php-function-on-the-click-of-a-button/
             -->
 
+            <h2> Diets Buttons </h2>
+            <p> Click to toggle a different diet <br></p>
+
             <form method="post">
                 <input type="submit" name="Vegan"
                        value="Vegan" />
@@ -97,81 +100,76 @@ $GlutenFree_result = mysqli_query($con, $GlutenFree_query);
 
         <!-- diets info Class -->
         <div class="diets-info">
-            <p>
-                <?php
+            <?php
 
-                /* Checks if the button (or form) has been clicked for each diet
-                    Prints info in the diet info block (i.e. product name and price) */
+            /* Checks if the button (or form) has been clicked for each diet
+                Prints info in the diet info block (i.e. product name and price) */
 
-                if(isset($_POST['Vegan'])) {
-                    /* Runs through all available results as long as they are in the record */
-                    while($vegan_record = mysqli_fetch_assoc($vegan_result)) {
+            if(isset($_POST['Vegan'])) {
+                /* Runs through all available results as long as they are in the record */
+                while($vegan_record = mysqli_fetch_assoc($vegan_result)) {
 
-                        /* echo == prints out info */
-                        /* e.g. ProductName from the record or a paragraph break etc. */
-                        echo "<br>";
-                        echo "<b>" . $vegan_record['ProductName'] . "</b>";
-                        echo "<br>";
-                        echo "Cost: $" . $vegan_record['Price'];
-                        echo "<br>";
+                    /* echo == prints out info */
+                    /* e.g. ProductName from the record or a paragraph break etc. */
+                    echo "<br>";
+                    echo "<h2><b>" . $vegan_record['ProductName'] . "</b></h2>";
+                    echo "<p>Cost: $" . $vegan_record['Price'];
+                    echo "<br>";
 
-                        /* Available, checks if it equals YES */
-                        if($vegan_record['available'] == "yes") {
-                            echo "<b>- Available -</b>";
-                            echo "<br>";
-                        } else {
-                            echo "<b>- Out of Stock -</b>";
-                            echo "<br>";
-                        }
-
+                    /* Available, checks if it equals YES */
+                    if($vegan_record['available'] == "yes") {
+                        echo "<b>- Available -</b>";
+                        echo "<br><br></p>";
+                    } else {
+                        echo "<b>- Out of Stock -</b>";
+                        echo "<br><br></p>";
                     }
                 }
-                if(isset($_POST['Vegetarian'])) {
-                    /* Runs through all available results as long as they are in the record */
-                    while($vegetarian_record = mysqli_fetch_assoc($vegetarian_result)) {
+            }
+            if(isset($_POST['Vegetarian'])) {
+                /* Runs through all available results as long as they are in the record */
+                while($vegetarian_record = mysqli_fetch_assoc($vegetarian_result)) {
 
-                        /* echo == prints out info */
-                        /* e.g. ProductName from the record or a paragraph break etc. */
-                        echo "<br>";
-                        echo "<b>" . $vegetarian_record['ProductName'] . "</b>";
-                        echo "<br>";
-                        echo "Cost: $" . $vegetarian_record['Price'];
-                        echo "<br>";
+                    /* echo == prints out info */
+                    /* e.g. ProductName from the record or a paragraph break etc. */
+                    echo "<br>";
+                    echo "<h2><b>" . $vegetarian_record['ProductName'] . "</b></h2>";
+                    echo "<p>Cost: $" . $vegetarian_record['Price'];
+                    echo "<br>";
 
-                        /* Available, checks if it equals YES */
-                        if($vegetarian_record['available'] == "yes") {
-                            echo "<b>- Available -</b>";
-                            echo "<br>";
-                        } else {
-                            echo "<b>- Out of Stock -</b>";
-                            echo "<br>";
-                        }
+                    /* Available, checks if it equals YES */
+                    if($vegetarian_record['available'] == "yes") {
+                        echo "<b>- Available -</b>";
+                        echo "<br><br></p>";
+                    } else {
+                        echo "<b>- Out of Stock -</b>";
+                        echo "<br><br></p>";
                     }
                 }
-                if(isset($_POST['GlutenFree'])) {
-                    /* Runs through all available results as long as they are in the record */
-                    while($GlutenFree_record = mysqli_fetch_assoc($GlutenFree_result)) {
+            }
+            if(isset($_POST['GlutenFree'])) {
+                /* Runs through all available results as long as they are in the record */
+                while($GlutenFree_record = mysqli_fetch_assoc($GlutenFree_result)) {
 
-                        /* echo == prints out info */
-                        /* e.g. ProductName from the record or a paragraph break etc. */
-                        echo "<br>";
-                        echo "<b>" . $GlutenFree_record['ProductName'] . "</b>";
-                        echo "<br>";
-                        echo "Cost: $" . $GlutenFree_record['Price'];
-                        echo "<br>";
+                    /* echo == prints out info */
+                    /* e.g. ProductName from the record or a paragraph break etc. */
+                    echo "<br>";
+                    echo "<h2><b>" . $GlutenFree_record['ProductName'] . "</b></h2>";
+                    echo "<p>Cost: $" . $GlutenFree_record['Price'];
+                    echo "<br>";
 
-                        /* Available, checks if it equals YES */
-                        if($GlutenFree_record['available'] == "yes") {
-                            echo "<b>- Available -</b>";
-                            echo "<br>";
-                        } else {
-                            echo "<b>- Out of Stock -</b>";
-                            echo "<br>";
-                        }
+                    /* Available, checks if it equals YES */
+                    if($GlutenFree_record['available'] == "yes") {
+                        echo "<b>- Available -</b>";
+                        echo "<br><br></p>";
+                    } else {
+                        echo "<b>- Out of Stock -</b>";
+                        echo "<br><br></p>";
                     }
                 }
+            }
 
-                ?>
+            ?>
 
             </p>
 
