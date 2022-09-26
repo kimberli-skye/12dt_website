@@ -47,6 +47,9 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 
         <!-- "menu block" class, linked to grid -->
         <div class="menu-block">
+            <a class="two" href="menu.php">Meals</a>
+            <a class="two" href="diets.php">Diets</a>
+            <a class="two" href="drinks.php">Drinks</a>
 
         </div>
 
@@ -61,7 +64,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
                     /* echo == prints out info */
                     /* e.g. SpecialsID from the record or a paragraph break etc. */
                     echo "<br>";
-                    echo " " . $all_specials_record['SpecialsID'];
+                    echo $all_specials_record['SpecialsID'] . " Special";
                     echo ":<br>";
                     echo $all_specials_record['ProductName'];
                     echo " $" . $all_specials_record['DiscountedPrice'];
@@ -93,6 +96,15 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
                         echo "- Gluten Free -";
                     }
 
+                    /* Checks if available is yes */
+                    if($all_specials_record['available'] == 'yes') {
+                        echo "<br>";
+                        echo "<b>- Available -</b>";
+                    } else{
+                        echo "<br>";
+                        echo "<b>- Out of Stock -</b>";
+                    }
+
                     /* Two paragraph breaks */
                     echo "<br> <br>";
                     echo "<br> <br>";
@@ -102,7 +114,6 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
         </div>
 
         <div class="footer">
-            <p> hello </p>
         </div>
     </div>
 

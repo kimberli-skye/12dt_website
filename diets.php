@@ -10,22 +10,16 @@ $vegan_query = "SELECT *
 $vegan_result = mysqli_query($con, $vegan_query);
 $vegan_result_two = mysqli_query($con, $vegan_query);
 
-$vegetarian_query = "SELECT ProductName, Price
+$vegetarian_query = "SELECT *
                      FROM products
                      WHERE products.Vegetarian = 'yes'";
 $vegetarian_result = mysqli_query($con, $vegetarian_query);
 
-$GlutenFree_query = "SELECT ProductName, Price
+$GlutenFree_query = "SELECT *
                      FROM products
                      WHERE products.GlutenFree = 'yes'";
 $GlutenFree_result = mysqli_query($con, $GlutenFree_query);
 
-$product_query = "SELECT *
-                  FROM products, available";
-$product_result = mysqli_query($con, $product_query);
-
-$available_food = "SELECT * FROM available";
-$available_result = mysqli_query($con, $available_food);
 ?>
 
 
@@ -121,6 +115,15 @@ $available_result = mysqli_query($con, $available_food);
                         echo "Cost: $" . $vegan_record['Price'];
                         echo "<br>";
 
+                        /* Available, checks if it equals YES */
+                        if($vegan_record['available'] == "yes") {
+                            echo "<b>- Available -</b>";
+                            echo "<br>";
+                        } else {
+                            echo "<b>- Out of Stock -</b>";
+                            echo "<br>";
+                        }
+
                     }
                 }
                 if(isset($_POST['Vegetarian'])) {
@@ -134,6 +137,15 @@ $available_result = mysqli_query($con, $available_food);
                         echo "<br>";
                         echo "Cost: $" . $vegetarian_record['Price'];
                         echo "<br>";
+
+                        /* Available, checks if it equals YES */
+                        if($vegetarian_record['available'] == "yes") {
+                            echo "<b>- Available -</b>";
+                            echo "<br>";
+                        } else {
+                            echo "<b>- Out of Stock -</b>";
+                            echo "<br>";
+                        }
                     }
                 }
                 if(isset($_POST['GlutenFree'])) {
@@ -147,6 +159,15 @@ $available_result = mysqli_query($con, $available_food);
                         echo "<br>";
                         echo "Cost: $" . $GlutenFree_record['Price'];
                         echo "<br>";
+
+                        /* Available, checks if it equals YES */
+                        if($GlutenFree_record['available'] == "yes") {
+                            echo "<b>- Available -</b>";
+                            echo "<br>";
+                        } else {
+                            echo "<b>- Out of Stock -</b>";
+                            echo "<br>";
+                        }
                     }
                 }
 

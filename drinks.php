@@ -7,22 +7,14 @@ $con = mysqli_connect("localhost", "joneski", 'spicysong14', "joneski_canteen");
 /* Selects all information from products where product type is drink*/
 /* Contains it in results */
 $all_drinks_query = "SELECT *
-                    FROM products
-                    WHERE ProductType = 'drink' 
-                    ORDER BY 'ProductID' ASC";
+                     FROM products
+                     WHERE ProductType = 'drink' 
+                     ORDER BY 'ProductID' ASC";
 $all_drinks_result = mysqli_query($con, $all_drinks_query);
 
+/* Query for only the ID for drinks */
 $drink_id = "SELECT ProductID FROM products WHERE ProductType = 'drink'";
 $drink_id_results = mysqli_query($con, $drink_id);
-
-/* Selects all information from products and available where the id is available*/
-/* Contains it in results */
-$available_drinks_query = "SELECT *
-                          FROM products, available
-                          WHERE ProductType = 'drink'
-                          AND products.ProductID = available.ProductID";
-$available_drinks_result = mysqli_query($con, $available_drinks_query);
-$available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
 
 ?>
 
@@ -143,8 +135,8 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
                         echo "- Gluten Free -";
                     }
 
-                    /* Available, checks if the info is in the available drinks record*/
-                    if($div_one_record['ProductName'] == $available_drinks_record['ProductName']) {
+                    /* Available, checks if it equals YES */
+                    if($div_one_record['available'] == "yes") {
                         echo "<br>";
                         echo "<b>- Available -</b>";
                     } else {
@@ -196,8 +188,8 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
                         echo "- Gluten Free -";
                     }
 
-                    /* Available, checks if the info is in the available drinks record*/
-                    if($div_two_record['ProductName'] == $available_drinks_record['ProductName']) {
+                    /* Available, checks if it equals YES */
+                    if($div_two_record['available'] == "yes") {
                         echo "<br>";
                         echo "<b>- Available -</b>";
                     } else {
@@ -216,6 +208,12 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
             <p>
                 <?php
                 while($all_drinks_record = mysqli_fetch_assoc($all_drinks_result)) {
+
+                    /* Checks if div_placement is null:
+                    https://www.w3schools.com/php/func_var_is_null.asp#:~:
+                    text=The%20is_null()%20function%20checks,otherwise%20it%20returns%20false%2Fnothing.
+                    (Got inspo for code here)
+                    */
                     if(is_null($all_drinks_record['div_placement'])) {
                         echo "<br>";
                         echo "<h2>" . $all_drinks_record['ProductName'] . "</h2>";
@@ -248,8 +246,8 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
                             echo "- Gluten Free -";
                         }
 
-                        /* Available, checks if the info is in the available drinks record*/
-                        if ($all_drinks_record['ProductName'] == $available_drinks_record['ProductName']) {
+                        /* Available, checks if it equals YES */
+                        if($all_drinks_record['available'] == "yes") {
                             echo "<br>";
                             echo "<b>- Available -</b>";
                         } else {
@@ -266,6 +264,7 @@ $available_drinks_record = mysqli_fetch_assoc($available_drinks_result);
         </div>
 
         <div class="footer">
+
         </div>
 
     </div>
