@@ -32,11 +32,11 @@
     grid-row-end: 2;
     background-color: teal;
     margin-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 3px;
 }
 
 /*---- Footer Class ----*/
-/*---- Sets area in grid ----*/
-/*---- Sets background colour----*/
 .footer {
     grid-column-start: 1;
     grid-column-end: 7;
@@ -47,20 +47,16 @@
 }
 
 /*---- creates Navigation Class ----*/
-/*---- Sets area in grid ----*/
-/*---- Sets background colour----*/
 .navigation {
     grid-column-start: 5;
     grid-column-end: 7;
     grid-row-start: 1;
     grid-row-end: 2;
-    margin-top: 50px;       /*---- Creates empty space above ----*/
+    margin-top: 50px;
 }
 
 
 /*---- creates Page Name Class (used in multiple pages) ----*/
-/*---- Sets area in grid ----*/
-/*---- Sets background colour and margin ----*/
 .page-name {
     grid-column-start: 3;
     grid-column-end: 5;
@@ -71,8 +67,6 @@
 }
 
 /*---- creates Menu Block Class (used in Home_page) ----*/
-/*---- Sets area in grid ----*/
-/*---- Sets background colour and margin ----*/
 .menu-block {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -80,11 +74,10 @@
     grid-row-end: 5;
     background-color: white;
     margin: 50px;
+    padding-top: 10px;
 }
 
 /*---- creates Specials Block Class (used in Home_page) ----*/
-/*---- Sets area in grid ----*/
-/*---- Sets background colour and margin ----*/
 .specials-block {
     align-items: center;
     justify-content: center;  /*---- aligns content to the center (display, align and justify) ----*/
@@ -124,10 +117,10 @@
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 3;
-    grid-row-end: 6;
+    grid-row-end: 5;
     background-color: white;
     margin-left: 50px;
-
+    padding-top: 10px;
 }
 
 /*---- creates Diet Toggled Name Class (used in Diets) ----*/
@@ -140,6 +133,7 @@
     margin-left: 70px;
     margin-right: 70px;
     margin-top: 30px;
+    padding: 30px;
 }
 
 /*---- creates Diets Info Class (used in Diets) ----*/
@@ -156,8 +150,7 @@
 
 
 /*---- creates three Drink Info Classes (used in Drinks) ----*/
-
-.drink-info-one{
+.drink-info-left{
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
@@ -166,7 +159,7 @@
     margin: 50px;
 }
 
-.drink-info-two{
+.drink-info-middle{
     grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 3;
@@ -175,7 +168,7 @@
     margin: 50px;
 }
 
-.drink-info-three{
+.drink-info-right{
     grid-column-start: 5;
     grid-column-end: 7;
     grid-row-start: 3;
@@ -219,19 +212,19 @@ h3{
 }
 
 /*---- creates a.one (link version one) option ----*/
-/*---- links to font family ----*/
-/*---- sets colour and font size ----*/
+/*---- Sets border size and radius ----*/
 a.one{
     font-family: 'open-sans-regular', sans-serif;
     font-size: 20px;
     color: white;
-    border: 4px solid white;  /* ---- sets border size and colour ---- */
-    border-radius: 0px;  /* ---- sets shape of border (square) ---- */
+    border: 4px solid white;        /* ---- sets border size and colour ---- */
+    border-radius: 0px;     /* ---- sets shape of border (square) ---- */
     padding: 10px;
     margin-left: 30px;
-    text-decoration: none;
+    text-decoration: none;      /*---- No text decoration (gets rid of underlined_  ----*/
 }
 
+/*----  Creates a.two (link 2) option ----*/
 a.two{
     font-family: 'open-sans-regular', sans-serif;
     font-size: 20px;
@@ -242,10 +235,12 @@ a.two{
     border-radius: 4px;
     color: white;
     text-decoration: none;
-    display: block;
+    display: block;     /*---- Sets itself within the block its placed within ----*/
     text-align: center;
 }
 
+
+/*---- Determines properties when hovered over link two ----*/
 a.two:hover {
     font-family: 'open-sans-regular', sans-serif;
     font-size: 20px;
@@ -270,7 +265,7 @@ input{
     border-radius: 4px;
     margin-top: 30px;
     color: white;
-    margin-left: 50px;
+    width: 300px;
 }
 
 input:hover{
@@ -282,6 +277,5 @@ input:hover{
     border-radius: 4px;
     margin-top: 30px;
     color: black;
-    margin-left: 50px;
-
+    width: 300px;
 }

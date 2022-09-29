@@ -3,21 +3,21 @@
 /* Connects to database */
 $con = mysqli_connect("localhost", "joneski", 'spicysong14', "joneski_canteen");
 
-/* Products Query */
-/* Selects all information from Products where available is no*/
-/* Contains it in results */
+/* Unavailable Products Query
+   Selects all information from Products where available is no
+   and Product type is food (no drinks on this page)
+   Contains it in results */
 $unavailable_products_query = "SELECT * 
                                FROM products
-                               WHERE products.available = 'no'
+                               WHERE available = 'no'
                                AND ProductType = 'food'";
 $unavailable_products_result = mysqli_query($con, $unavailable_products_query);
 
-/* Available Products Query */
-/* Selects all information from Products*/
-/* Checks if the id's match */
+/* Available Products Query
+   Selects all information from Products where it equals yes */
 $available_products_query = "SELECT *
                              FROM products
-                             WHERE products.available = 'yes'
+                             WHERE available = 'yes'
                              AND ProductType = 'food'";
 $available_products_result = mysqli_query($con, $available_products_query);
 ?>
@@ -28,6 +28,7 @@ $available_products_result = mysqli_query($con, $available_products_query);
         <!-- links to stylesheet -->
         <meta charset="utf-8"/>
         <link href="style.css" rel="stylesheet" type="text/css">
+        <title>WGC Canteen - Kimberli Jones</title>
     </head>
 
     <!-- class that is linked to grid in css -->
@@ -35,13 +36,17 @@ $available_products_result = mysqli_query($con, $available_products_query);
 
         <!-- Header Class -->
         <div class="header">
-
+            <!-- Links to home page -->
+            <a href="home_page.php">
+                <!-- Links in an image, adds alternate info, sets height and width -->
+                <img src="wgc_logo.png" alt="Wellington Girl's College Logo" height=120px width=120px>
+            </a>
         </div>
 
-        <!-- Nav Class -->
+        <!-- Navigation Class -->
         <div class="navigation">
-            <!-- links the navigation buttons to different pages of the website -->
-            <!-- links to class "one" for first link type -->
+            <!-- links the navigation buttons to different pages of the website
+                 links to class "one" for first link type -->
             <a class="one" href="home_page.php">Home</a>
             <a class="one" href="menu.php">Menu</a>
             <a class="one" href="diets.php">Diets</a>
@@ -53,98 +58,97 @@ $available_products_result = mysqli_query($con, $available_products_query);
             <h1> Meals Menu </h1>
         </div>
 
-        <!-- all menus (every product) class -->
+        <!-- All menus (every product) class -->
         <div class="all-menus-block">
 
+            <!-- Title-->
             <h2><br> <b> Available Meals: </b> <br></h2>
 
             <!-- Opens PHP -->
             <?php
-            /* Runs through all results as long as they are in the record */
+            /* Runs through all available results as long as they are in the record */
             while($available_products_record = mysqli_fetch_assoc($available_products_result)){
-                /* echo == prints out info */
-                /* e.g. ProductName from the record or a paragraph break etc. */
-                echo "<p><br>";
-                echo "<b>" . $available_products_record['ProductName'] . "</b>";
-                echo "<br>";
-                echo "Cost: $". $available_products_record['Price'];
+
+                /* Echo == prints out info */
+                /* Grabs general info from the record under column names */
+                echo "<p><br><b>" . $available_products_record['ProductName'] . "</b>";
+                echo "<br>Cost: $". $available_products_record['Price'];
                 echo "<br>Dietary info: ";
-                /* Checks whether the Dietary requirement is yes or no */
-                /* if no, skip, if yes print appropriate info */
-                /* Meat info */
-                if($available_products_record['Meat'] == 'no') {
-                } else {
+
+                /* Checks whether the Requirement is yes or no
+                   if no, skip, if yes print appropriate info
+                   Meat info */
+                if($available_products_record['Meat'] == 'yes') {
                     echo "- Meat -";
                 }
+
                 /* Vegan info */
-                if($available_products_record['Vegan'] == 'no') {
-                } else {
+                if($available_products_record['Vegan'] == 'yes') {
                     echo "- Vegan -";
                 }
+
                 /* Vegetarian info */
-                if($available_products_record['Vegetarian'] == 'no') {
-                } else {
+                if($available_products_record['Vegetarian'] == 'yes') {
                     echo "- Vegetarian -";
                 }
+
                 /* Gluten Free info */
-                if($available_products_record['GlutenFree'] == 'no') {
-                } else {
+                if($available_products_record['GlutenFree'] == 'yes') {
                     echo "- Gluten Free -";
                 }
 
-                /* Paragraph break */
                 echo "<br> <br></p>";
             }
 
             ?>
             </p>
 
-            <!-- meals that unavailable = no -->
-            <h2><br> <b> Unavailable Meals: </b> <br></h2>
+            <h2>
+                <!-- Separation title-->
+                <br><br> <b> Unavailable Meals: </b> <br>
+            </h2>
 
             <!-- Opens PHP -->
             <?php
-            /* Runs through all results as long as they are in the record */
+            /* Runs through all unavailable results as long as they are in the record */
             while($unavailable_products_record = mysqli_fetch_assoc($unavailable_products_result)){
-                /* echo == prints out info */
-                /* e.g. ProductName from the record or a paragraph break etc. */
-                echo "<p><br>";
-                echo "<b>" . $unavailable_products_record['ProductName'] . "</b>";
-                echo "<br>";
-                echo "Cost: $". $unavailable_products_record['Price'];
+
+                echo "<p><br><b>" . $unavailable_products_record['ProductName'] . "</b>";
+                echo "<br>Cost: $". $unavailable_products_record['Price'];
                 echo "<br>Dietary info: ";
-                /* Checks whether the Dietary requirement is yes or no */
-                /* if no, skip, if yes print appropriate info */
-                /* Meat info */
-                if($unavailable_products_record['Meat'] == 'no') {
-                } else {
+
+                /* Checks whether the Requirement is yes or no
+                      if no, skip, if yes print appropriate info
+                      Meat info */
+                if($unavailable_products_record['Meat'] == 'yes') {
                     echo "- Meat -";
                 }
+
                 /* Vegan info */
-                if($unavailable_products_record['Vegan'] == 'no') {
-                } else {
+                if($unavailable_products_record['Vegan'] == 'yes') {
                     echo "- Vegan -";
                 }
+
                 /* Vegetarian info */
-                if($unavailable_products_record['Vegetarian'] == 'no') {
-                } else {
+                if($unavailable_products_record['Vegetarian'] == 'yes') {
                     echo "- Vegetarian -";
                 }
+
                 /* Gluten Free info */
-                if($unavailable_products_record['GlutenFree'] == 'no') {
-                } else {
+                if($unavailable_products_record['GlutenFree'] == 'yes') {
                     echo "- Gluten Free -";
                 }
 
-                /* Paragraph break */
-                echo "<br> <br> </p>";
+                echo "<br> <br></p>";
             }
             ?>
 
         </div>
 
+        <!-- Footer class -->
         <div class="footer">
         </div>
+
     </div>
 
 </html>
