@@ -44,6 +44,7 @@
     grid-row-end: 7;
     background-color: teal;
     margin-top: 20px;
+    padding: 30px;
 }
 
 /*---- creates Navigation Class ----*/
@@ -60,6 +61,16 @@
 .page-name {
     grid-column-start: 3;
     grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: white;
+    padding: 40px;
+}
+
+/*---- creates Page Name Class (used in multiple pages) ----*/
+.home-name {
+    grid-column-start: 4;
+    grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 3;
     background-color: white;
@@ -103,8 +114,8 @@
 
 /*---- creates Diet Page Name Class (used in Diets) ----*/
 .diets-page-name {
-    grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 3;
     background-color: white;

@@ -49,7 +49,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
         </div>
 
         <!-- "page name" class, linked to grid -->
-        <div class="page-name">
+        <div class="home-name">
             <h1> WGC Canteen </h1>
         </div>
 
@@ -80,7 +80,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
                    e.g. SpecialsID from the record or a paragraph break etc. */
 
                 echo "<h2><br>" . $all_specials_record['SpecialsID'] . " Special";
-                echo ":</h2><br><br><p><b>" . $all_specials_record['ProductName'] . "</b>";
+                echo ":</h2><br><p><b>" . $all_specials_record['ProductName'] . "</b>";
                 echo " $" . $all_specials_record['DiscountedPrice'];
                 echo "<br>Dietary info: ";
 
@@ -88,23 +88,22 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
                    if no, skip, if yes print appropriate info
                    Meat info */
                 if($all_specials_record['Meat'] == 'yes') {
-                    echo "- Meat -";
+                    echo " Meat,";
                 }
 
                 /* Vegan info */
                 if($all_specials_record['Vegan'] == 'yes') {
-                    echo "- Vegan -";
+                    echo " Vegan,";
                 }
 
                 /* Vegetarian info */
                 if($all_specials_record['Vegetarian'] == 'yes') {
-                    echo "- Vegetarian -";
+                    echo " Vegetarian,";
                 }
 
-
                 /* Gluten Free info */
-                if($all_specials_record['GlutenFree'] == 'no') {
-                    echo "- Gluten Free -";
+                if($all_specials_record['GlutenFree'] == 'yes') {
+                    echo " Gluten Free,";
                 }
 
                 /* Checks if available is yes
@@ -112,9 +111,9 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
                    if no echo out of stock*/
                 echo "<br>";
                 if($all_specials_record['available'] == 'yes') {
-                    echo "<b>- Available -</b>";
+                    echo "<b>Available</b>";
                 } else{
-                    echo "<b>- Out of Stock -</b>";
+                    echo "<b>Out of Stock</b>";
                 }
 
                 /* Two paragraph breaks and end of <p> tag*/

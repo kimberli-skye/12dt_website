@@ -80,7 +80,7 @@ $GlutenFree_result = mysqli_query($con, $GlutenFree_query);
                        value="Vegetarian" />
 
                 <input type="submit" name="GlutenFree"
-                       value="GlutenFree" />
+                       value="Gluten Free" />
             </form>
 
         </div>
@@ -122,9 +122,9 @@ $GlutenFree_result = mysqli_query($con, $GlutenFree_query);
 
                     /* Available, checks if it equals YES */
                     if($vegan_record['available'] == "yes") {
-                        echo "<b>- Available -</b>";
+                        echo "<b>Available</b>";
                     } else {
-                        echo "<b>- Out of Stock -</b>";
+                        echo "<b>Out of Stock</b>";
                     }
                     echo "<br><br></p>";
                 }
@@ -139,9 +139,9 @@ $GlutenFree_result = mysqli_query($con, $GlutenFree_query);
 
                     /* Available, checks if it equals YES */
                     if($vegetarian_record['available'] == "yes") {
-                        echo "<b>- Available -</b>";
+                        echo "<b>Available</b>";
                     } else {
-                        echo "<b>- Out of Stock -</b>";
+                        echo "<b>Out of Stock</b>";
                     }
                     echo "<br><br></p>";
                 }
@@ -156,9 +156,9 @@ $GlutenFree_result = mysqli_query($con, $GlutenFree_query);
 
                     /* Available, checks if it equals YES */
                     if($GlutenFree_record['available'] == "yes") {
-                        echo "<b>- Available -</b>";
+                        echo "<b>Available</b>";
                     } else {
-                        echo "<b>- Out of Stock -</b>";
+                        echo "<b>Out of Stock</b>";
                     }
                     echo "<br><br></p>";
                 }

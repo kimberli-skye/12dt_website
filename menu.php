@@ -79,22 +79,22 @@ $available_products_result = mysqli_query($con, $available_products_query);
                    if no, skip, if yes print appropriate info
                    Meat info */
                 if($available_products_record['Meat'] == 'yes') {
-                    echo "- Meat -";
+                    echo " Meat,";
                 }
 
                 /* Vegan info */
                 if($available_products_record['Vegan'] == 'yes') {
-                    echo "- Vegan -";
+                    echo " Vegan,";
                 }
 
                 /* Vegetarian info */
                 if($available_products_record['Vegetarian'] == 'yes') {
-                    echo "- Vegetarian -";
+                    echo " Vegetarian,";
                 }
 
                 /* Gluten Free info */
                 if($available_products_record['GlutenFree'] == 'yes') {
-                    echo "- Gluten Free -";
+                    echo " Gluten Free,";
                 }
 
                 echo "<br> <br></p>";
@@ -121,22 +121,22 @@ $available_products_result = mysqli_query($con, $available_products_query);
                       if no, skip, if yes print appropriate info
                       Meat info */
                 if($unavailable_products_record['Meat'] == 'yes') {
-                    echo "- Meat -";
+                    echo " Meat,";
                 }
 
                 /* Vegan info */
                 if($unavailable_products_record['Vegan'] == 'yes') {
-                    echo "- Vegan -";
+                    echo " Vegan,";
                 }
 
                 /* Vegetarian info */
                 if($unavailable_products_record['Vegetarian'] == 'yes') {
-                    echo "- Vegetarian -";
+                    echo " Vegetarian,";
                 }
 
                 /* Gluten Free info */
                 if($unavailable_products_record['GlutenFree'] == 'yes') {
-                    echo "- Gluten Free -";
+                    echo " Gluten Free,";
                 }
 
                 echo "<br> <br></p>";
