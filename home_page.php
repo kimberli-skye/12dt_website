@@ -125,6 +125,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 
         <!-- Footer class -->
         <div class="footer">
+            <h2> ⓒ Copyright of Wellington Girls' College (Kimberli Jones)</h2>
         </div>
 
     </div>

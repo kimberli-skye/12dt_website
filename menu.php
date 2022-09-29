@@ -147,6 +147,7 @@ $available_products_result = mysqli_query($con, $available_products_query);
 
         <!-- Footer class -->
         <div class="footer">
+            <h2> ⓒ Copyright of Wellington Girls' College (Kimberli Jones)</h2>
         </div>
 
     </div>

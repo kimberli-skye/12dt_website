@@ -168,7 +168,7 @@ $GlutenFree_result = mysqli_query($con, $GlutenFree_query);
 
         <!-- footer class in grid -->
         <div class="footer">
-
+            <h2> ⓒ Copyright of Wellington Girls' College (Kimberli Jones)</h2>
         </div>
 
     </div>
