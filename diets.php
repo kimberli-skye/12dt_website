@@ -23,7 +23,6 @@ $GlutenFree_result = mysqli_query($con, $GlutenFree_query);
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -71,7 +70,9 @@ $GlutenFree_result = mysqli_query($con, $GlutenFree_query);
             <p> Click to toggle a different diet <br></p>
 
             <!-- Creates a form with post method and submit type
-                 Names each button and value after the diet -->
+                 Names each button and value after the diet
+                 Value is the info see on the front end
+                 name is the label used in the code -->
             <form method="post">
                 <input type="submit" name="Vegan"
                        value="Vegan" />
